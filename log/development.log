@@ -5753,3 +5753,372 @@ Completed 200 OK in 124ms (Views: 118.2ms | ActiveRecord: 2.4ms)
 
 
 Started GET "/assets/creatures.self-96a8b25b57fd5e297837d1627777e159e5d3d6debedeef5e54835d762bb32407.css?body=1" for ::1 at 2016-05-10 13:16:49 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'creatures'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'creatures_tags'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'monsters'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tags'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/" for ::1 at 2016-05-14 14:51:24 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CreaturesController#index as HTML
+  [1m[35mCreature Load (1.3ms)[0m  SELECT "creatures".* FROM "creatures"
+  [1m[36mTag Load (1.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 4]]
+  [1m[35mTag Load (0.6ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 8]]
+  [1m[36mTag Load (0.5ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 9]]
+  [1m[35mTag Load (0.5ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 10]]
+  [1m[36mTag Load (1.5ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 11]]
+  [1m[35mTag Load (0.5ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 12]]
+  Rendered creatures/index.html.erb within layouts/application (92.4ms)
+Completed 200 OK in 420ms (Views: 375.0ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/assets/creatures.self-96a8b25b57fd5e297837d1627777e159e5d3d6debedeef5e54835d762bb32407.css?body=1" for ::1 at 2016-05-14 14:51:24 -0700
+
+
+Started GET "/assets/main.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-14 14:51:24 -0700
+
+
+Started GET "/assets/tags.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-14 14:51:24 -0700
+
+
+Started GET "/assets/application.self-be2bf0b3493180daa21641c67866e10b9de840626c95eded6a9b5bdc7ff24db5.css?body=1" for ::1 at 2016-05-14 14:51:24 -0700
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-14 14:51:25 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-14 14:51:25 -0700
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-14 14:51:25 -0700
+
+
+Started GET "/assets/creatures.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-14 14:51:25 -0700
+
+
+Started GET "/assets/main.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-14 14:51:25 -0700
+
+
+Started GET "/assets/tags.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-14 14:51:25 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2016-05-14 14:51:25 -0700
+
+
+Started DELETE "/creatures/4" for ::1 at 2016-05-14 14:51:26 -0700
+Processing by CreaturesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"yG7yn3hhweETjVicrD5NP854IMn/OUZhRLYVK5qSrDALq+V5DukTyeMpQynr9+ryZ+yyag7GrJtzQ8m0NRpDcg==", "id"=>"4"}
+  [1m[36mCreature Load (0.4ms)[0m  [1mSELECT  "creatures".* FROM "creatures" WHERE "creatures"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mSQL (3.3ms)[0m  DELETE FROM "creatures" WHERE "creatures"."id" = $1  [["id", 4]]
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 3.7ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "creatures" violates foreign key constraint "fk_rails_27a704db18" on table "creatures_tags"
+DETAIL:  Key (id)=(4) is still referenced from table "creatures_tags".
+: DELETE FROM "creatures" WHERE "creatures"."id" = $1):
+  app/controllers/creatures_controller.rb:33:in `destroy'
+
+
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.8ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (84.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.5ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (72.7ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (174.1ms)
+
+
+Started GET "/" for ::1 at 2016-05-14 14:52:36 -0700
+Processing by CreaturesController#index as HTML
+  [1m[36mCreature Load (0.3ms)[0m  [1mSELECT "creatures".* FROM "creatures"[0m
+  [1m[35mTag Load (0.8ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 4]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 8]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 9]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 10]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 11]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 12]]
+  Rendered creatures/index.html.erb within layouts/application (42.0ms)
+Completed 200 OK in 80ms (Views: 66.0ms | ActiveRecord: 8.5ms)
+
+
+Started DELETE "/creatures/4" for ::1 at 2016-05-14 14:52:38 -0700
+Processing by CreaturesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"c/HMTLwyahwoiuWOSQlP3ybRgxFImi8/9eoSh6eRjbiwNNuqyrq4NNgu/jsOwOgSj0URsrllxcXCH84YCBli+g==", "id"=>"4"}
+  [1m[35mCreature Load (0.4ms)[0m  SELECT  "creatures".* FROM "creatures" WHERE "creatures"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM "creatures" WHERE "creatures"."id" = $1[0m  [["id", 4]]
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 1.8ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "creatures" violates foreign key constraint "fk_rails_27a704db18" on table "creatures_tags"
+DETAIL:  Key (id)=(4) is still referenced from table "creatures_tags".
+: DELETE FROM "creatures" WHERE "creatures"."id" = $1):
+  app/controllers/creatures_controller.rb:33:in `destroy'
+
+
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.9ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (58.1ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (120.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'creatures'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'creatures_tags'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (3.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'monsters'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tags'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/creatures/4" for ::1 at 2016-05-14 14:53:54 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CreaturesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCreature Load (0.5ms)[0m  SELECT  "creatures".* FROM "creatures" WHERE "creatures"."id" = $1 LIMIT 1  [["id", 4]]
+  Rendered creatures/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 291ms (Views: 239.8ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/creatures" for ::1 at 2016-05-14 14:53:56 -0700
+Processing by CreaturesController#index as HTML
+  [1m[36mCreature Load (0.3ms)[0m  [1mSELECT "creatures".* FROM "creatures"[0m
+  [1m[35mTag Load (0.8ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 4]]
+  [1m[36mTag Load (0.5ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 8]]
+  [1m[35mTag Load (0.5ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 9]]
+  [1m[36mTag Load (0.6ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 10]]
+  [1m[35mTag Load (0.5ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 11]]
+  [1m[36mTag Load (0.4ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 12]]
+  Rendered creatures/index.html.erb within layouts/application (55.3ms)
+Completed 200 OK in 72ms (Views: 65.9ms | ActiveRecord: 6.1ms)
+
+
+Started DELETE "/creatures/4" for ::1 at 2016-05-14 14:53:58 -0700
+Processing by CreaturesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4udm8uE02rD1RAfB5Zw2/ir5d3+2k0xKcH0PyKnBNMkhInEUl7wImAXgHHSiVZEzg23l3EdsprBHiNNXBknbiw==", "id"=>"4"}
+  [1m[35mCreature Load (0.3ms)[0m  SELECT  "creatures".* FROM "creatures" WHERE "creatures"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM "creatures" WHERE "creatures"."id" = $1[0m  [["id", 4]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.5ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "creatures" violates foreign key constraint "fk_rails_27a704db18" on table "creatures_tags"
+DETAIL:  Key (id)=(4) is still referenced from table "creatures_tags".
+: DELETE FROM "creatures" WHERE "creatures"."id" = $1):
+  app/controllers/creatures_controller.rb:33:in `destroy'
+
+
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.0ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (96.0ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (9.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (74.1ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (167.4ms)
+
+
+Started GET "/tags" for ::1 at 2016-05-14 14:54:01 -0700
+Processing by TagsController#index as HTML
+  [1m[35mTag Load (0.7ms)[0m  SELECT "tags".* FROM "tags"
+  Rendered tags/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 75ms (Views: 73.5ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/tags/3" for ::1 at 2016-05-14 14:54:02 -0700
+Processing by TagsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"alh8aD2NtocOTlS5Q5R2ss0UlT3pO/VF8Q0LiIgBaYKpnWuOSwVkr/7qTwwEXdF/ZIAHnhjEH7/G+NcXJ4mGwA==", "id"=>"3"}
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mSQL (1.1ms)[0m  DELETE FROM "tags" WHERE "tags"."id" = $1  [["id", 3]]
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.4ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "tags" violates foreign key constraint "fk_rails_1ea076c99d" on table "creatures_tags"
+DETAIL:  Key (id)=(3) is still referenced from table "creatures_tags".
+: DELETE FROM "tags" WHERE "tags"."id" = $1):
+  app/controllers/tags_controller.rb:31:in `destroy'
+
+
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (75.2ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (63.5ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (155.7ms)
+
+
+Started GET "/" for ::1 at 2016-05-14 14:55:04 -0700
+Processing by CreaturesController#index as HTML
+  [1m[36mCreature Load (0.4ms)[0m  [1mSELECT "creatures".* FROM "creatures"[0m
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 4]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 8]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 9]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 10]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 11]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 12]]
+  Rendered creatures/index.html.erb within layouts/application (54.2ms)
+Completed 200 OK in 91ms (Views: 67.3ms | ActiveRecord: 16.6ms)
+
+
+Started DELETE "/creatures/4" for ::1 at 2016-05-14 14:55:06 -0700
+Processing by CreaturesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dRjXD48w0/NCO9rQ67JyxIzcPoHSuyZ+8DRNDrgDEjW23cDp+bgB27KfwWWse9UJJUisIiNEzITHwZGRF4v9dw==", "id"=>"4"}
+  [1m[35mCreature Load (1.3ms)[0m  SELECT  "creatures".* FROM "creatures" WHERE "creatures"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "creatures_tags" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 4]]
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "creatures" WHERE "creatures"."id" = $1[0m  [["id", 4]]
+  [1m[35m (7.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/creatures
+Completed 302 Found in 17ms (ActiveRecord: 10.0ms)
+
+
+Started GET "/creatures" for ::1 at 2016-05-14 14:55:06 -0700
+Processing by CreaturesController#index as HTML
+  [1m[36mCreature Load (0.3ms)[0m  [1mSELECT "creatures".* FROM "creatures"[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 8]]
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 9]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 10]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 11]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 12]]
+  Rendered creatures/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 47ms (Views: 44.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/creatures" for ::1 at 2016-05-14 14:55:17 -0700
+Processing by CreaturesController#index as HTML
+  [1m[36mCreature Load (0.4ms)[0m  [1mSELECT "creatures".* FROM "creatures"[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 8]]
+  [1m[36mTag Load (1.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 9]]
+  [1m[35mTag Load (0.9ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 10]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 11]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 12]]
+  Rendered creatures/index.html.erb within layouts/application (45.2ms)
+Completed 200 OK in 73ms (Views: 56.8ms | ActiveRecord: 10.3ms)
+
+
+Started DELETE "/creatures/8" for ::1 at 2016-05-14 14:55:19 -0700
+Processing by CreaturesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"NZ6q3QUbpugzZqoCfpP6w1jJ6gu/aRAstKYvBvRpbDj2W707c5N0wMPCsbc5Wl0O8V14qE6W+taDU/OZW+GDeg==", "id"=>"8"}
+  [1m[36mCreature Load (0.4ms)[0m  [1mSELECT  "creatures".* FROM "creatures" WHERE "creatures"."id" = $1 LIMIT 1[0m  [["id", 8]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM "creatures_tags" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 8]]
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "creatures" WHERE "creatures"."id" = $1  [["id", 8]]
+  [1m[36m (8.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/creatures
+Completed 302 Found in 17ms (ActiveRecord: 10.8ms)
+
+
+Started GET "/creatures" for ::1 at 2016-05-14 14:55:19 -0700
+Processing by CreaturesController#index as HTML
+  [1m[35mCreature Load (1.0ms)[0m  SELECT "creatures".* FROM "creatures"
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 9]]
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 10]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1[0m  [["creature_id", 11]]
+  [1m[35mTag Load (0.7ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "creatures_tags" ON "tags"."id" = "creatures_tags"."tag_id" WHERE "creatures_tags"."creature_id" = $1  [["creature_id", 12]]
+  Rendered creatures/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 28ms (Views: 24.8ms | ActiveRecord: 2.3ms)

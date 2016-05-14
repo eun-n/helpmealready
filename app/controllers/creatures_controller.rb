@@ -30,27 +30,14 @@ class CreaturesController < ApplicationController
   end
 
   def destroy
-    Creature.find(params[:id]).delete
+    Creature.find(params[:id]).destroy
     redirect_to creatures_path
   end
 
   private
 
   def creature_params
-    params.require(:creature).permit(:description, :name, tag_ids: [])
+    params.require(:creature).permit(:id, :description, :name, tag_ids: [])
   end
 
-  # def update_tags(creature)
-  #   # get the list of all checkboxes from the form
-  #   tags = params[:creature][:tags_ids]
-
-  #   # reset all the tags the creature currently has
-  #   creature.tags.clear
-
-  #   # go through al lthe tags from the form
-  #   tags.each do |id|
-  #     # only re-add the tags where checkboxes were checked
-  #     creature.tags << Tag.find(id) unless id.blank?
-  #   end
-  # end
 end
