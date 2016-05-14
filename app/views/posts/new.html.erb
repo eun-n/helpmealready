@@ -1,11 +1,13 @@
-<h1>Creature Creator</h1>
-<!-- <p>Find me in app/views/creatures/new.html.erb</p>
- -->
+<h1>Create Post</h1>
 
-<%= form_for @creature do |f| %>
+<%= form_for @post do |f| %>
 	<div>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
+	<div>
+		<%= f.label :picture %>
+		<%= f.text_field :picture %>
 	</div>
 	
 	<div>

@@ -1,0 +1,17 @@
+<h1>Post Edit</h1>
+
+<%= bootstrap_form_for(@post)  do |f| %>
+	<div>
+		<%= f.text_field :title %>
+	</div>
+	<div>
+		<%= f.text_field :picture %>
+	</div>
+	<div>
+		<%= f.text_area :description %>
+	</div>
+
+	<%= f.collection_check_boxes :tag_ids, @tags, :id, :name %>
+
+	<%= f.submit %>
+<% end %>

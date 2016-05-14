@@ -1,31 +1,17 @@
 Rails.application.routes.draw do
-  get 'tags/index'
+  get 'posts/index'
 
-  get 'tags/create'
+  get 'posts/create'
 
-  get 'tags/new'
+  get 'posts/new'
 
-  get 'tags/edit'
+  get 'posts/edit'
 
-  get 'tags/show'
+  get 'posts/show'
 
-  get 'tags/update'
+  get 'posts/update'
 
-  get 'tags/destroy'
-
-  get 'creatures/index'
-
-  get 'creatures/create'
-
-  get 'creatures/new'
-
-  get 'creatures/edit'
-
-  get 'creatures/show'
-
-  get 'creatures/update'
-
-  get 'creatures/destroy'
+  get 'posts/destroy'
 
   get 'tags/index'
 
@@ -41,10 +27,24 @@ Rails.application.routes.draw do
 
   get 'tags/destroy'
 
-  root 'creatures#index'
+  get 'tags/index'
+
+  get 'tags/create'
+
+  get 'tags/new'
+
+  get 'tags/edit'
+
+  get 'tags/show'
+
+  get 'tags/update'
+
+  get 'tags/destroy'
+
+  root 'posts#index'
   get 'about' => 'main#about'
   
-  resources :creatures
+  resources :posts
   resources :tags
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
