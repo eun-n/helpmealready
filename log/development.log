@@ -6584,3 +6584,159 @@ Processing by TagsController#index as HTML
   [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
   Rendered tags/index.html.erb within layouts/application (1.7ms)
 Completed 200 OK in 24ms (Views: 23.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tags" for ::1 at 2016-05-14 18:20:07 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by TagsController#index as HTML
+  [1m[35mTag Load (0.6ms)[0m  SELECT "tags".* FROM "tags"
+  Rendered tags/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 279ms (Views: 248.2ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/posts" for ::1 at 2016-05-14 18:20:09 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mTag Load (0.7ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (69.0ms)
+Completed 200 OK in 107ms (Views: 96.2ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/tags" for ::1 at 2016-05-14 18:20:25 -0700
+Processing by TagsController#index as HTML
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  Rendered tags/index.html.erb within layouts/application (27.7ms)
+Completed 200 OK in 59ms (Views: 58.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for ::1 at 2016-05-14 18:20:34 -0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.4ms)[0m  SELECT "posts".* FROM "posts"
+  [1m[36mTag Load (0.9ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1[0m  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 28ms (Views: 26.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tags/7" for ::1 at 2016-05-14 18:20:36 -0700
+Processing by TagsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mTag Load (0.3ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" INNER JOIN "posts_tags" ON "posts"."id" = "posts_tags"."post_id" WHERE "posts_tags"."tag_id" = $1[0m  [["tag_id", 7]]
+  Rendered tags/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 52ms (Views: 42.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tags" for ::1 at 2016-05-14 18:20:41 -0700
+Processing by TagsController#index as HTML
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags"
+  Rendered tags/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 47ms (Views: 45.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for ::1 at 2016-05-14 18:20:43 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mTag Load (0.5ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 45ms (Views: 43.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tags" for ::1 at 2016-05-14 18:20:44 -0700
+Processing by TagsController#index as HTML
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  Rendered tags/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 45ms (Views: 43.8ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/tags/6" for ::1 at 2016-05-14 18:20:46 -0700
+Processing by TagsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fzjwriYDIZCimt4hTf+u+tydfzxILMxtJ0Pw8SWtw7u8/edIUIvzuFI+xZQKNgk3dQntn7nTJpcQtixuiiUs+Q==", "id"=>"6"}
+  [1m[35mTag Load (0.3ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts_tags" WHERE "posts_tags"."tag_id" = $1  [["tag_id", 6]]
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM "tags" WHERE "tags"."id" = $1[0m  [["id", 6]]
+  [1m[35m (7.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/tags
+Completed 302 Found in 13ms (ActiveRecord: 9.7ms)
+
+
+Started GET "/tags" for ::1 at 2016-05-14 18:20:46 -0700
+Processing by TagsController#index as HTML
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  Rendered tags/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 51ms (Views: 50.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/tags/7" for ::1 at 2016-05-14 18:20:48 -0700
+Processing by TagsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"LayGf4AfefQHDOZlnpqxGOlNPrjBEhJgqwLQs8QS74fuaZGZ9per3Peo/dDZUxbVQNmsGzDt+Jqc9wwsa5oAxQ==", "id"=>"7"}
+  [1m[35mTag Load (0.3ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "posts_tags" WHERE "posts_tags"."tag_id" = $1  [["tag_id", 7]]
+  [1m[36mSQL (1.5ms)[0m  [1mDELETE FROM "tags" WHERE "tags"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 2.4ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "tags" violates foreign key constraint "fk_rails_1ea076c99d" on table "creatures_tags"
+DETAIL:  Key (id)=(7) is still referenced from table "creatures_tags".
+: DELETE FROM "tags" WHERE "tags"."id" = $1):
+  app/controllers/tags_controller.rb:31:in `destroy'
+
+
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.0ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.1ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (66.9ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (78.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (164.1ms)
+
+
+Started GET "/posts" for ::1 at 2016-05-14 18:20:59 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mTag Load (0.4ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tags" for ::1 at 2016-05-14 18:21:02 -0700
+Processing by TagsController#index as HTML
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags"[0m
+  Rendered tags/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 31ms (Views: 30.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/tags/8" for ::1 at 2016-05-14 18:21:03 -0700
+Processing by TagsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"i95r8Avv+F9DCfSKiCEFng16vLxJ9EJscB2RwIyrfnVIG3wWfWcqd7Ot7z/P6KJTpO4uH7gLqJZH6E1fIyORNw==", "id"=>"8"}
+  [1m[35mTag Load (0.4ms)[0m  SELECT  "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT 1  [["id", 8]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "posts_tags" WHERE "posts_tags"."tag_id" = $1  [["tag_id", 8]]
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM "tags" WHERE "tags"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.9ms)
+
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  update or delete on table "tags" violates foreign key constraint "fk_rails_1ea076c99d" on table "creatures_tags"
+DETAIL:  Key (id)=(8) is still referenced from table "creatures_tags".
+: DELETE FROM "tags" WHERE "tags"."id" = $1):
+  app/controllers/tags_controller.rb:31:in `destroy'
+
+
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.5ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (53.7ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (119.7ms)
