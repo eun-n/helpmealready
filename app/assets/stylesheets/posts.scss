@@ -2,16 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.post {
+body {
+	margin: 20px;
+	padding: 10px;
+}
+.row {
 	border: 2px solid black;
 	margin: 5px;
 	padding: 5px;
-	height: 230px
 }
 
 img {
-   float: left;
 	max-height: 200px;
 	border: 1px solid black;
 	border-radius: 3px;
 }
+
