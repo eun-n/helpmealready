@@ -18,7 +18,7 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find params[:id]
-    @creatures = @tag.creatures
+    @posts = @tag.posts
   end
 
   def update
@@ -28,7 +28,7 @@ class TagsController < ApplicationController
   end
 
   def destroy
-    Tag.find(params[:id]).destory
+    Tag.find(params[:id]).destroy
     redirect_to tags_path
   end
 

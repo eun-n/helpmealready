@@ -1,7 +1,7 @@
-<h1>Creatures with <%= @tag.name %> Tag</h1>
+<h1>Posts with <%= @tag.name %> Tag</h1>
 
 
-<% for creature in @creatures %>
-		<li> <%= link_to creature.name, creature_path(creature) %>
+<% for post in @posts %>
+		<li> <%= link_to post.title, post_path(post) %>
 </li>
 	<% end %>
