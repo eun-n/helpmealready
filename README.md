@@ -6,6 +6,9 @@ This app allows users to post a picture of a problem they have and create a vide
 Technologies Used:
 HTML, CSS, JavaScript, Ruby on Rails, WebRTC, PeerJS (server-https://p2ppeerjs.herokuapp.com), Postgres, Heroku
 
+Resources:
+https://bitbucket.org/webrtc/codelab, http://peerjs.com/
+
 Installation Instructions: 
 Fork and Clone repo
 open project in terminal
@@ -14,7 +17,8 @@ open project in terminal
 -rails s
 
 Unsolved Problems:
-Depending on heroku, there would be a notification that the connection to the server would be lost. This does not affect the video chats, but it does affect the call id's distributed by the server. The user would have to refresh the page to get a new id, then quickly give the id to the other person before connection to the server is lost. 
+Comments are currently not working as intended.**
+Sometimes there would be a notification that the connection to the server would be lost. This does not affect the video chats, but it does affect the call id's distributed by the server. The user would have to refresh the page to get a new id, then quickly give the id to the other person before connection to the server is lost. 
 
 Possible Problems:
 Trolling. Lots of trolling.
