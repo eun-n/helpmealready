@@ -13,7 +13,25 @@
  *= require_tree .
  *= require_self
  */
+.nav {
+	font-family:'Nanum Gothic',monospace;
+	background-color: white;
+	opacity: 0.90;
+	height: 46px;
+	width: 100%;
+	margin:auto;
+}
 
-b {
-	background-color: beige
+.nav:hover {
+	opacity: 0.90;
+}
+
+a {
+	color:teal;
+	font-size: 18px;
+	align-content: right;
+	font-weight: bold;
+}
+a:hover {
+   color: hotpink;
 }
