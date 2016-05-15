@@ -3,8 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-	margin: 20px;
-	padding: 10px;
 }
 .row {
 	border: 2px solid black;
@@ -19,5 +17,11 @@ img {
 	max-width: 200px;
 	border: 1px solid black;
 	border-radius: 3px;
+}
+
+h1 {
+	margin: 15px;
+		padding: 10px;
+
 }
 
