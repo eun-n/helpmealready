@@ -11,27 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514222650) do
+ActiveRecord::Schema.define(version: 20160515045738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "creatures", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "creatures_tags", force: :cascade do |t|
-    t.integer  "creature_id"
-    t.integer  "tag_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "creatures_tags", ["creature_id"], name: "index_creatures_tags_on_creature_id", using: :btree
-  add_index "creatures_tags", ["tag_id"], name: "index_creatures_tags_on_tag_id", using: :btree
 
   create_table "monsters", force: :cascade do |t|
     t.string   "name"
@@ -64,8 +47,14 @@ ActiveRecord::Schema.define(version: 20160514222650) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "creatures_tags", "creatures"
-  add_foreign_key "creatures_tags", "tags"
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   add_foreign_key "posts_tags", "posts"
   add_foreign_key "posts_tags", "tags"
 end
