@@ -14400,3 +14400,101 @@ Processing by PostsController#show as HTML
   Rendered comments/_create.html.erb (1.6ms)
   Rendered posts/show.html.erb within layouts/application (5.5ms)
 Completed 200 OK in 55ms (Views: 53.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/1" for ::1 at 2016-05-15 14:53:30 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.8ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/_show.html.erb (6.6ms)
+  Rendered comments/_create.html.erb (36.9ms)
+  Rendered posts/show.html.erb within layouts/application (52.0ms)
+Completed 200 OK in 2654ms (Views: 2586.5ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/posts/1" for ::1 at 2016-05-15 14:53:33 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/_show.html.erb (2.0ms)
+  Rendered comments/_create.html.erb (16.7ms)
+  Rendered posts/show.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 85ms (Views: 80.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/comments.self-746081c8d5f5ecd37b872c8c40fb286917279ae2678de580c0306353ec6d867e.css?body=1" for ::1 at 2016-05-15 14:53:33 -0700
+
+
+Started GET "/posts/1" for ::1 at 2016-05-15 14:55:12 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/_show.html.erb (2.0ms)
+  Rendered comments/_create.html.erb (7.3ms)
+  Rendered posts/show.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 71ms (Views: 69.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1" for ::1 at 2016-05-15 14:55:26 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/_show.html.erb (1.8ms)
+  Rendered comments/_create.html.erb (1.5ms)
+  Rendered posts/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 66ms (Views: 64.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/1" for ::1 at 2016-05-15 14:56:40 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/_show.html.erb (1.3ms)
+  Rendered comments/_create.html.erb (1.6ms)
+  Rendered posts/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 1451ms (Views: 1448.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/comments.self-794a41bd13f7afc476c0dd8767163427c80c40ab68adf833a65e6137e058a2ed.css?body=1" for ::1 at 2016-05-15 14:56:42 -0700
+
+
+Started GET "/posts/1" for ::1 at 2016-05-15 14:56:45 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/_show.html.erb (1.6ms)
+  Rendered comments/_create.html.erb (1.7ms)
+  Rendered posts/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 37ms (Views: 35.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/posts/1" for ::1 at 2016-05-15 14:57:20 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/_show.html.erb (1.3ms)
+  Rendered comments/_create.html.erb (1.6ms)
+  Rendered posts/show.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 1386ms (Views: 1383.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/comments.self-ad052b8bce460c19cb3b5015648690976bce646ae33bbcc7b2ea05e2620f5918.css?body=1" for ::1 at 2016-05-15 14:57:22 -0700
+
+
+Started GET "/posts/1" for ::1 at 2016-05-15 14:57:51 -0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments"[0m
+  Rendered comments/_show.html.erb (1.9ms)
+  Rendered comments/_create.html.erb (2.1ms)
+  Rendered posts/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 1362ms (Views: 1360.2ms | ActiveRecord: 0.5ms)
