@@ -1,5 +1,14 @@
-<% @comments.each do |comment| %>
-    <h2><%= comment.content %></h2>
-    <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
-    <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete %>
-<% end %>
+<div class="comment">
+<h2>Comments</h2>
+<hr>
+	<% @comments.each do |comment| %>
+	    <ul>
+		    <li>
+			    <h2><%= comment.content %></h2>
+			    <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+			    <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete %>
+			 </li>
+	    </ul>
+	    <hr>
+	<% end %>
+</div>

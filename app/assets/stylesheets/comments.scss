@@ -6,11 +6,18 @@ body {
 	margin: 15px;
 }
 
-.post {
+.row {
 	border: 2px solid black;
-	margin-top: 30px;
 	margin: 5px;
 	padding: 5px;
 	background-color:white;
 	opacity: .9;
+}
+
+.comment {
+	border: 2px solid black;
+	margin: 5px;
+	padding: 3px;
+	background-color: white;
+	opacity: .8;
 }
