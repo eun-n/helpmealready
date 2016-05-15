@@ -7849,3 +7849,44 @@ Completed 200 OK in 1430ms (Views: 1428.5ms | ActiveRecord: 0.5ms)
 
 
 Started GET "/assets/posts.self-f6aee67bdc76296e094bd8e3b8232874b8b23c69203765c71a25169d77fcafce.css?body=1" for ::1 at 2016-05-14 20:21:27 -0700
+
+
+Started GET "/" for ::1 at 2016-05-14 20:25:03 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.7ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (16.5ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 4.4ms)
+
+ActionView::Template::Error (undefined method `description' for nil:NilClass):
+     8: 			</div>
+     9: 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+    10: 				<h2><%= post.title %></h2>
+    11: 				<p><%= @post.description %></p>
+    12: 				<ul>
+    13: 				<% for tag in post.tags %>
+    14: 					<li> <%= link_to tag.name, tag_path(tag) %></li>
+  app/views/posts/index.html.erb:11:in `block in _app_views_posts_index_html_erb___4567878563759538941_70140932723360'
+  app/views/posts/index.html.erb:4:in `_app_views_posts_index_html_erb___4567878563759538941_70140932723360'
+
+
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.2ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (78.1ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (75.7ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/C109283748/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (168.8ms)
+
+
+Started GET "/" for ::1 at 2016-05-14 20:26:11 -0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mTag Load (1.5ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "posts_tags" ON "tags"."id" = "posts_tags"."tag_id" WHERE "posts_tags"."post_id" = $1  [["post_id", 1]]
+  Rendered posts/index.html.erb within layouts/application (77.2ms)
+Completed 200 OK in 391ms (Views: 379.1ms | ActiveRecord: 8.7ms)
