@@ -3,9 +3,8 @@
 
 <% @posts.each do |post| %>
 <div class="post">
-	<h2><%= post.title %></h2>
 	<img src="<%= post.picture %>">
-
+	<h2><%= post.title %></h2>
 	<ul>
 	<% for tag in post.tags %>
 		<li> <%= link_to tag.name, tag_path(tag) %></li>
